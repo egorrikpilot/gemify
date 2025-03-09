@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - GEMIFY</title>
+    <meta name="description" content="Корзина покупок - оформление заказа ювелирных украшений">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header will be loaded dynamically -->
+    <div id="header"></div>
+
+    <main>
+        <div class="container">
+            <h1 class="section-title">Корзина</h1>
+
+            <div class="cart-content">
+                <div class="cart-items">
+                    <!-- Пример товара в корзине -->
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="assets/images/products/ring1.jpg" alt="Кольцо">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Золотое кольцо с бриллиантом</h3>
+                            <div class="cart-item-price">24 990 ₽</div>
+                            <div class="cart-item-controls">
+                                <div class="quantity-control">
+                                    <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                    <span class="quantity-value">1</span>
+                                    <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                                </div>
+                                <button class="remove-item" onclick="removeItem(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-sidebar">
+                    <div class="cart-summary">
+                        <h3>Ваш заказ</h3>
+                        <div class="summary-row">
+                            <span>Товары:</span>
+                            <span class="subtotal">24 990 ₽</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Скидка:</span>
+                            <span class="discount">0 ₽</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Доставка:</span>
+                            <span class="shipping">Бесплатно</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Итого:</span>
+                            <span class="total">24 990 ₽</span>
+                        </div>
+                        <button class="btn-primary checkout-btn" onclick="showCheckoutForm()">
+                            Оформить заказ
+                        </button>
+                    </div>
+
+                    <div class="cart-promo">
+                        <h3>Промокод</h3>
+                        <div class="promo-form">
+                            <input type="text" placeholder="Введите промокод">
+                            <button class="btn-primary">Применить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-form" style="display: none;">
+                <h2>Оформление заказа</h2>
+                <form id="checkoutForm">
+                    <div class="form-section">
+                        <h3>Контактные данные</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Имя*</label>
+                                <input type="text" id="name" required placeholder="Введите ваше имя">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон*</label>
+                                <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" required placeholder="example@mail.ru">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Доставка</h3>
+                        <div class="delivery-methods">
+                            <div class="delivery-method">
+                                <input type="radio" name="delivery" id="courier" value="courier" checked>
+                                <label for="courier">
+                                    <i class="fas fa-truck"></i>
+                                    <div>
+                                        <strong>Курьером</strong>
+                                        <p>1-2 дня, бесплатно</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="delivery-method">
+                                <input type="radio" name="delivery" id="pickup" value="pickup">
+                                <label for="pickup">
+                                    <i class="fas fa-store"></i>
+                                    <div>
+                                        <strong>Самовывоз</strong>
+                                        <p>Сегодня, бесплатно</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="delivery-method">
+                                <input type="radio" name="delivery" id="post" value="post">
+                                <label for="post">
+                                    <i class="fas fa-mail-bulk"></i>
+                                    <div>
+                                        <strong>Почтой России</strong>
+                                        <p>5-7 дней, 300₽</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Адрес доставки*</label>
+                            <textarea id="address" required placeholder="Город, улица, дом, квартира"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Оплата</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" name="payment" id="card" value="card" checked>
+                                <label for="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>
+                                        <strong>Банковской картой</strong>
+                                        <p>Visa, Mastercard, Мир</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" name="payment" id="cash" value="cash">
+                                <label for="cash">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <div>
+                                        <strong>Наличными</strong>
+                                        <p>При получении</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Комментарий к заказу</h3>
+                        <div class="form-group">
+                            <textarea id="comment" placeholder="Дополнительная информация по заказу, пожелания по доставке"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Подтвердить заказ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded dynamically -->
+    <div id="footer"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function updateQuantity(btn, delta) {
+            const quantitySpan = btn.parentElement.querySelector('.quantity-value');
+            let quantity = parseInt(quantitySpan.textContent) + delta;
+            if (quantity < 1) quantity = 1;
+            quantitySpan.textContent = quantity;
+            updateTotals();
+        }
+
+        function removeItem(btn) {
+            btn.closest('.cart-item').remove();
+            updateTotals();
+        }
+
+        function updateTotals() {
+            // Здесь будет логика пересчета сумм
+        }
+
+        // Загрузка шапки и подвала
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('templates/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('templates/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+
+        function showCheckoutForm() {
+            document.querySelector('.cart-content').style.display = 'none';
+            document.querySelector('.checkout-form').style.display = 'block';
+        }
+
+        document.getElementById('checkoutForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here would be the order processing logic
+            showNotification('Заказ успешно оформлен!');
+            // Clear cart and redirect to success page
+            localStorage.removeItem('cart');
+            window.location.href = 'order-success.html';
+        });
+    </script>
+</body>
+</html> 

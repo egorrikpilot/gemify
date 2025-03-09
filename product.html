@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кольцо Royalty с бриллиантом | GEMIFY</title>
+    <meta name="description" content="Изысканное кольцо из золота 750 пробы с центральным бриллиантом 0.5 карат и бриллиантовым паве">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header will be loaded dynamically -->
+    <div id="header"></div>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumbs">
+                <a href="index.html">Главная</a>
+                <span class="separator">/</span>
+                <a href="catalog.html">Каталог</a>
+                <span class="separator">/</span>
+                <a href="catalog.html?category=rings">Кольца</a>
+                <span class="separator">/</span>
+                <span class="current">Кольцо Royalty</span>
+            </nav>
+
+            <div class="product-details">
+                <div class="product-gallery">
+                    <div class="swiper product-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1.jpg" alt="Кольцо Royalty - вид 1">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1-2.jpg" alt="Кольцо Royalty - вид 2">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1-3.jpg" alt="Кольцо Royalty - вид 3">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper product-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1.jpg" alt="Миниатюра 1">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1-2.jpg" alt="Миниатюра 2">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/products/ring1-3.jpg" alt="Миниатюра 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1 class="product-title">Кольцо Royalty с бриллиантом</h1>
+                    <div class="product-meta">
+                        <span class="product-sku">Артикул: RY-001</span>
+                        <span class="product-category">Кольца</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">189 900 ₽</span>
+                        <span class="old-price">229 900 ₽</span>
+                        <span class="discount-label">-17%</span>
+                    </div>
+                    <div class="product-description">
+                        <p>Изысканное кольцо из золота 750 пробы с центральным бриллиантом 0.5 карат и бриллиантовым паве. Идеальный выбор для особого случая или как символ вечной любви.</p>
+                    </div>
+                    <div class="product-specs">
+                        <h3>Характеристики</h3>
+                        <ul>
+                            <li><span>Материал:</span> Золото 750 пробы</li>
+                            <li><span>Вес золота:</span> 4.5 г</li>
+                            <li><span>Центральный камень:</span> Бриллиант 0.5 карат</li>
+                            <li><span>Дополнительные камни:</span> 20 бриллиантов общим весом 0.3 карат</li>
+                            <li><span>Размеры:</span> 16, 16.5, 17, 17.5, 18</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <div class="size-select">
+                            <label for="size">Размер:</label>
+                            <select id="size" class="filter-select">
+                                <option value="16">16</option>
+                                <option value="16.5">16.5</option>
+                                <option value="17">17</option>
+                                <option value="17.5">17.5</option>
+                                <option value="18">18</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary add-to-cart" data-product-id="1">Добавить в корзину</button>
+                        <button class="wishlist-btn" data-product-id="1">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-delivery">
+                        <h3>Доставка и оплата</h3>
+                        <ul>
+                            <li><i class="fas fa-truck"></i> Бесплатная доставка по России</li>
+                            <li><i class="fas fa-box"></i> Премиальная упаковка в подарок</li>
+                            <li><i class="fas fa-credit-card"></i> Оплата картой или наличными</li>
+                            <li><i class="fas fa-undo"></i> 30 дней на возврат</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <section class="related-products">
+                <h2 class="section-title">Похожие украшения</h2>
+                <div class="products-grid">
+                    <!-- Related products will be loaded dynamically -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded dynamically -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            fetch('templates/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('templates/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+
+            // Initialize product gallery
+            const productThumbs = new Swiper('.product-thumbs', {
+                spaceBetween: 10,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+
+            const productSlider = new Swiper('.product-slider', {
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                thumbs: {
+                    swiper: productThumbs,
+                },
+            });
+
+            // Load related products
+            loadRelatedProducts();
+        });
+    </script>
+</body>
+</html> 

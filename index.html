@@ -1,126 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemify - Мини-магазин</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 20px;
-        }
-        .product {
-            display: flex;
-            flex-direction: column;
-            width: 200px;
-            margin: 10px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .product-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .product-price {
-            font-size: 16px;
-            color: #e74c3c;
-            margin-top: 5px;
-        }
-        .btn-buy {
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            margin-top: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn-buy:hover {
-            background-color: #2980b9;
-        }
-
-        /* Стиль для всплывающего окна */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .popup {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-        .popup button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .link {
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
+    <title>GEMIFY - Ювелирный магазин премиум класса</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Продукт -->
-    <div class="product">
-        <img src="https://via.placeholder.com/200x200.png" alt="Product Image">
-        <div class="product-title">Кольцо из золота</div>
-        <div class="product-price">₽5000</div>
-        <div class="btn-buy" onclick="buyProduct()">Купить</div>
-    </div>
-
-    <!-- Всплывающее окно с условиями -->
-    <div class="overlay" id="popupOverlay">
-        <div class="popup">
-            <p>Открывая это мини-приложение, Вы принимаете <a href="https://telegram.org/tos/mini-apps" class="link" target="_blank">условия использования мини-приложений</a>.</p>
-            <button onclick="startApp()">Запустить</button>
-            <button onclick="cancelApp()">Отмена</button>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="tel:+74951234567" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +7 (495) 123-45-67
+                    </a>
+                    <span class="contact-separator">|</span>
+                    <a href="mailto:info@gemify.ru" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        info@gemify.ru
+                    </a>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox" title="Переключить тему">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round">
+                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <script>
-        // Показать попап при загрузке страницы
-        window.onload = function() {
-            document.getElementById('popupOverlay').style.display = 'flex';
-        };
+        <div class="main-bar">
+            <div class="container">
+                <button class="mobile-menu-btn" aria-label="Открыть меню">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-text">GEMIFY</span>
+                        <span class="logo-tagline">Ювелирный бутик</span>
+                    </a>
+                </div>
 
-        // Действия при нажатии кнопки "Запустить"
-        function startApp() {
-            document.getElementById('popupOverlay').style.display = 'none';
-            // Здесь можно добавить код для запуска мини-приложения
-        }
+                <div class="header-actions">
+                    <a href="account.html" class="action-btn" title="Личный кабинет">
+                        <i class="far fa-user"></i>
+                        <span class="action-label">Кабинет</span>
+                    </a>
+                    <a href="wishlist.html" class="action-btn" title="Избранное">
+                        <i class="far fa-heart"></i>
+                        <span class="wishlist-count">0</span>
+                        <span class="action-label">Избранное</span>
+                    </a>
+                    <a href="cart.html" class="action-btn" title="Корзина">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                        <span class="action-label">Корзина</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        // Действия при нажатии кнопки "Отмена"
-        function cancelApp() {
-            document.getElementById('popupOverlay').style.display = 'none';
-            // Можно здесь закрыть страницу или выполнить другое действие
-        }
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li>
+                        <a href="catalog.html" class="catalog-btn">
+                            <i class="fas fa-gem"></i>
+                            <span>Каталог</span>
+                        </a>
+                    </li>
+                    <li><a href="new.html">Новинки</a></li>
+                    <li><a href="sale.html">Акции</a></li>
+                    <li><a href="collections.html">Коллекции</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
 
-        // Функция покупки продукта
-        function buyProduct() {
-            alert("Вы выбрали кольцо из золота! Перейдите к оплате.");
-        }
-    </script>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay"></div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Slider -->
+        <section class="hero-slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h2>Новая коллекция</h2>
+                            <p>Изысканные украшения для особых моментов</p>
+                            <a href="catalog.html" class="btn-primary">Смотреть коллекцию</a>
+                        </div>
+                        <img src="assets/images/slider/slide1.jpg" alt="Новая коллекция">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h2>Скидки до 30%</h2>
+                            <p>На избранные украшения из золота</p>
+                            <a href="catalog.html?sale=1" class="btn-primary">Перейти к акции</a>
+                        </div>
+                        <img src="assets/images/slider/slide2.jpg" alt="Акции">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title reveal">Категории украшений</h2>
+                <div class="categories-grid">
+                    <a href="catalog.html?category=rings" class="category-card reveal reveal-delay-1">
+                        <img src="assets/images/categories/rings.jpg" alt="Кольца">
+                        <h3>Кольца</h3>
+                    </a>
+                    <a href="catalog.html?category=earrings" class="category-card reveal reveal-delay-2">
+                        <img src="assets/images/categories/earrings.jpg" alt="Серьги">
+                        <h3>Серьги</h3>
+                    </a>
+                    <a href="catalog.html?category=necklaces" class="category-card reveal reveal-delay-3">
+                        <img src="assets/images/categories/necklaces.jpg" alt="Колье">
+                        <h3>Колье</h3>
+                    </a>
+                    <a href="catalog.html?category=bracelets" class="category-card">
+                        <img src="assets/images/categories/bracelets.jpg" alt="Браслеты">
+                        <h3>Браслеты</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title reveal">Популярные украшения</h2>
+                <div class="products-grid">
+                    <div class="product-card reveal-left reveal-delay-1">
+                        <!-- ... existing code ... -->
+                    </div>
+                    <div class="product-card reveal reveal-delay-2">
+                        <!-- ... existing code ... -->
+                    </div>
+                    <div class="product-card reveal-right reveal-delay-3">
+                        <!-- ... existing code ... -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <div class="container">
+                <h2 class="section-title reveal">Отзывы наших клиентов</h2>
+                <div class="swiper reviews-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="review-card reveal-left">
+                                <!-- ... existing code ... -->
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card reveal">
+                                <!-- ... existing code ... -->
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card reveal-right">
+                                <!-- ... existing code ... -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content reveal">
+                    <h2>Подпишитесь на новости</h2>
+                    <p>Получайте первыми информацию о новых коллекциях и специальных предложениях</p>
+                    <form class="newsletter-form reveal-delay-1">
+                        <input type="email" name="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn-primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h4>О компании</h4>
+                        <p>GEMIFY - премиальный ювелирный магазин, предлагающий изысканные украшения из золота и серебра с драгоценными камнями.</p>
+                        <div class="social-links">
+                            <a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" rel="noopener"><i class="fab fa-vk"></i></a>
+                            <a href="#" target="_blank" rel="noopener"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Информация</h4>
+                        <ul>
+                            <li><a href="about.html">О нас</a></li>
+                            <li><a href="delivery.html">Доставка</a></li>
+                            <li><a href="payment.html">Оплата</a></li>
+                            <li><a href="returns.html">Возврат</a></li>
+                            <li><a href="size-guide.html">Размерная сетка</a></li>
+                            <li><a href="care.html">Уход за украшениями</a></li>
+                            <li><a href="blog.html">Блог</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Москва, ул. Тверская, 1</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@gemify.ru">info@gemify.ru</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Пн-Вс: 10:00 - 22:00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 GEMIFY. Все права защищены.</p>
+                    <div class="footer-links">
+                        <a href="privacy.html">Политика конфиденциальности</a>
+                        <a href="terms.html">Пользовательское соглашение</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Вернуться к началу страницы">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
-</html>
+</html> 

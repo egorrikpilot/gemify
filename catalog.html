@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог украшений | GEMIFY</title>
+    <meta name="description" content="Широкий выбор эксклюзивных ювелирных украшений: кольца, серьги, колье, браслеты и подвески">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header will be loaded dynamically -->
+    <div id="header"></div>
+
+    <main>
+        <section class="catalog-header">
+            <div class="container">
+                <h1 class="section-title">Каталог украшений</h1>
+                <div class="catalog-controls">
+                    <div class="filters">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">Все категории</option>
+                            <option value="rings">Кольца</option>
+                            <option value="earrings">Серьги</option>
+                            <option value="necklaces">Колье</option>
+                            <option value="bracelets">Браслеты</option>
+                            <option value="pendants">Подвески</option>
+                        </select>
+                        <select id="materialFilter" class="filter-select">
+                            <option value="all">Все материалы</option>
+                            <option value="gold_750">Золото 750</option>
+                            <option value="gold_585">Золото 585</option>
+                            <option value="platinum">Платина</option>
+                        </select>
+                        <select id="stoneFilter" class="filter-select">
+                            <option value="all">Все камни</option>
+                            <option value="diamond">Бриллиант</option>
+                            <option value="sapphire">Сапфир</option>
+                            <option value="ruby">Рубин</option>
+                            <option value="emerald">Изумруд</option>
+                        </select>
+                    </div>
+                    <div class="sorting">
+                        <select id="sortSelect" class="filter-select">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Цена: по возрастанию</option>
+                            <option value="price-desc">Цена: по убыванию</option>
+                            <option value="new">Сначала новые</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-products">
+            <div class="container">
+                <div class="products-grid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+                <div class="pagination">
+                    <!-- Pagination will be added dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded dynamically -->
+    <div id="footer"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            fetch('templates/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('templates/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+
+            // Initialize products
+            loadProducts();
+
+            // Add event listeners for filters and sorting
+            document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+            document.getElementById('materialFilter').addEventListener('change', filterProducts);
+            document.getElementById('stoneFilter').addEventListener('change', filterProducts);
+            document.getElementById('sortSelect').addEventListener('change', sortProducts);
+        });
+    </script>
+</body>
+</html> 
